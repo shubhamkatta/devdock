@@ -1,0 +1,192 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 320">
+
+  <!-- ============================================================ -->
+  <!-- WATER — three wave layers across full width                   -->
+  <!-- ============================================================ -->
+  <g transform="translate(0,210)">
+    <path d="M0,0 Q25,-6 50,0 Q75,6 100,0 Q125,-6 150,0 Q175,6 200,0 Q225,-6 250,0 Q275,6 300,0 Q325,-6 350,0 Q375,6 400,0 Q425,-6 450,0 Q475,6 500,0 Q525,-6 550,0 Q575,6 600,0 Q625,-6 650,0 Q675,6 700,0 Q725,-6 750,0 Q775,6 800,0" fill="none" stroke="#0d1117" stroke-width="1.2" opacity="0.25"/>
+    <path d="M0,12 Q25,6 50,12 Q75,18 100,12 Q125,6 150,12 Q175,18 200,12 Q225,6 250,12 Q275,18 300,12 Q325,6 350,12 Q375,18 400,12 Q425,6 450,12 Q475,18 500,12 Q525,6 550,12 Q575,18 600,12 Q625,6 650,12 Q675,18 700,12 Q725,6 750,12 Q775,18 800,12" fill="none" stroke="#0d1117" stroke-width="0.8" opacity="0.15"/>
+    <path d="M0,24 Q25,19 50,24 Q75,29 100,24 Q125,19 150,24 Q175,29 200,24 Q225,19 250,24 Q275,29 300,24 Q325,19 350,24 Q375,29 400,24 Q425,19 450,24 Q475,29 500,24 Q525,19 550,24 Q575,29 600,24 Q625,19 650,24 Q675,29 700,24 Q725,19 750,24 Q775,29 800,24" fill="none" stroke="#0d1117" stroke-width="0.5" opacity="0.1"/>
+  </g>
+
+  <!-- ============================================================ -->
+  <!-- DOCK / WHARF — runs across lower portion                      -->
+  <!-- ============================================================ -->
+  <g transform="translate(0,185)">
+    <!-- Main dock platform -->
+    <rect x="30" y="0" width="400" height="6" rx="1" fill="#0d1117"/>
+    <!-- Dock edge detail -->
+    <rect x="30" y="6" width="400" height="2" fill="#0d1117" opacity="0.3"/>
+    <!-- Dock pilings -->
+    <line x1="60" y1="8" x2="60" y2="30" stroke="#0d1117" stroke-width="3" opacity="0.5"/>
+    <line x1="140" y1="8" x2="140" y2="32" stroke="#0d1117" stroke-width="3" opacity="0.5"/>
+    <line x1="220" y1="8" x2="220" y2="30" stroke="#0d1117" stroke-width="3" opacity="0.5"/>
+    <line x1="300" y1="8" x2="300" y2="32" stroke="#0d1117" stroke-width="3" opacity="0.5"/>
+    <line x1="380" y1="8" x2="380" y2="30" stroke="#0d1117" stroke-width="3" opacity="0.5"/>
+    <!-- Dock planking lines -->
+    <line x1="30" y1="3" x2="430" y2="3" stroke="#0d1117" stroke-width="0.3" opacity="0.15"/>
+    <!-- Bollards -->
+    <rect x="75" y="-4" width="6" height="4" rx="1" fill="#0d1117" opacity="0.6"/>
+    <rect x="195" y="-4" width="6" height="4" rx="1" fill="#0d1117" opacity="0.6"/>
+    <rect x="335" y="-4" width="6" height="4" rx="1" fill="#0d1117" opacity="0.6"/>
+  </g>
+
+  <!-- ============================================================ -->
+  <!-- GANTRY CRANE — left side of dock                              -->
+  <!-- ============================================================ -->
+  <g transform="translate(100,30)">
+    <!-- Left leg -->
+    <line x1="-30" y1="155" x2="-20" y2="40" stroke="#0d1117" stroke-width="2.5"/>
+    <!-- Right leg -->
+    <line x1="30" y1="155" x2="20" y2="40" stroke="#0d1117" stroke-width="2.5"/>
+    <!-- Cross brace -->
+    <line x1="-24" y1="100" x2="24" y2="100" stroke="#0d1117" stroke-width="1.2"/>
+    <line x1="-22" y1="80" x2="22" y2="80" stroke="#0d1117" stroke-width="0.8" opacity="0.4"/>
+    <!-- Top beam (horizontal boom) -->
+    <rect x="-55" y="36" width="140" height="5" rx="1" fill="#0d1117"/>
+    <rect x="-55" y="41" width="140" height="2" fill="#0d1117" opacity="0.2"/>
+    <!-- Operator cabin -->
+    <rect x="-8" y="22" width="16" height="14" rx="1.5" fill="none" stroke="#0d1117" stroke-width="1.5"/>
+    <rect x="-5" y="25" width="10" height="8" rx="1" fill="#0d1117" opacity="0.05"/>
+    <line x1="0" y1="22" x2="0" y2="36" stroke="#0d1117" stroke-width="0.4" opacity="0.3"/>
+    <!-- Boom truss lines -->
+    <line x1="-55" y1="38" x2="-45" y2="22" stroke="#0d1117" stroke-width="0.5" opacity="0.3"/>
+    <line x1="85" y1="38" x2="75" y2="22" stroke="#0d1117" stroke-width="0.5" opacity="0.3"/>
+    <line x1="-35" y1="36" x2="-20" y2="22" stroke="#0d1117" stroke-width="0.4" opacity="0.2"/>
+    <line x1="55" y1="36" x2="20" y2="22" stroke="#0d1117" stroke-width="0.4" opacity="0.2"/>
+    <!-- Cable / hoist -->
+    <line x1="50" y1="41" x2="50" y2="120" stroke="#0d1117" stroke-width="0.7" opacity="0.5" stroke-dasharray="3,2"/>
+    <!-- Spreader bar -->
+    <rect x="38" y="120" width="24" height="3" rx="0.5" fill="#0d1117" opacity="0.5"/>
+    <!-- Hanging container -->
+    <rect x="40" y="123" width="20" height="12" rx="1" fill="none" stroke="#0d1117" stroke-width="1"/>
+    <line x1="40" y1="129" x2="60" y2="129" stroke="#0d1117" stroke-width="0.3" opacity="0.2"/>
+    <!-- Cable connections -->
+    <line x1="42" y1="120" x2="50" y2="41" stroke="#0d1117" stroke-width="0.3" opacity="0.25"/>
+    <line x1="58" y1="120" x2="50" y2="41" stroke="#0d1117" stroke-width="0.3" opacity="0.25"/>
+    <!-- Counter-jib weight -->
+    <rect x="-52" y="30" width="10" height="6" rx="0.5" fill="#0d1117" opacity="0.35"/>
+  </g>
+
+  <!-- ============================================================ -->
+  <!-- CONTAINERS ON DOCK — stacked                                  -->
+  <!-- ============================================================ -->
+  <g transform="translate(220,155)">
+    <!-- Bottom row -->
+    <rect x="0" y="14" width="28" height="16" rx="1" fill="none" stroke="#0d1117" stroke-width="1.2"/>
+    <line x1="0" y1="22" x2="28" y2="22" stroke="#0d1117" stroke-width="0.3" opacity="0.2"/>
+    <rect x="32" y="14" width="28" height="16" rx="1" fill="none" stroke="#0d1117" stroke-width="1.2"/>
+    <line x1="32" y1="22" x2="60" y2="22" stroke="#0d1117" stroke-width="0.3" opacity="0.2"/>
+    <rect x="64" y="14" width="28" height="16" rx="1" fill="#0d1117" opacity="0.06" stroke="#0d1117" stroke-width="1.2"/>
+    <line x1="64" y1="22" x2="92" y2="22" stroke="#0d1117" stroke-width="0.3" opacity="0.2"/>
+    <!-- Top row (offset) -->
+    <rect x="6" y="-2" width="28" height="16" rx="1" fill="none" stroke="#0d1117" stroke-width="1"/>
+    <line x1="6" y1="6" x2="34" y2="6" stroke="#0d1117" stroke-width="0.3" opacity="0.2"/>
+    <rect x="38" y="-2" width="28" height="16" rx="1" fill="#0d1117" opacity="0.05" stroke="#0d1117" stroke-width="1"/>
+    <line x1="38" y1="6" x2="66" y2="6" stroke="#0d1117" stroke-width="0.3" opacity="0.2"/>
+    <!-- Single top -->
+    <rect x="18" y="-16" width="28" height="14" rx="1" fill="none" stroke="#0d1117" stroke-width="0.8" opacity="0.6"/>
+  </g>
+
+  <!-- ============================================================ -->
+  <!-- CARGO SHIP — at berth, right side                             -->
+  <!-- ============================================================ -->
+  <g transform="translate(580,195)">
+    <!-- Hull -->
+    <path d="M-110,16 Q-115,8 -100,4 L100,4 Q115,8 110,16 Z" fill="none" stroke="#0d1117" stroke-width="1.5"/>
+    <!-- Hull detail lines -->
+    <path d="M-95,8 L95,8" stroke="#0d1117" stroke-width="0.3" opacity="0.15"/>
+    <!-- Bow -->
+    <path d="M-100,4 L-118,0" stroke="#0d1117" stroke-width="1.2" stroke-linecap="round"/>
+    <line x1="-118" y1="0" x2="-130" y2="-5" stroke="#0d1117" stroke-width="0.8"/>
+    <!-- Stern -->
+    <path d="M100,4 L106,0 L106,-8" fill="none" stroke="#0d1117" stroke-width="1.2"/>
+
+    <!-- Superstructure (bridge) — aft -->
+    <rect x="55" y="-28" width="44" height="32" rx="1.5" fill="none" stroke="#0d1117" stroke-width="1.3"/>
+    <rect x="58" y="-25" width="38" height="26" fill="#0d1117" opacity="0.04"/>
+    <!-- Bridge windows -->
+    <rect x="60" y="-24" width="8" height="5" rx="1" fill="none" stroke="#0d1117" stroke-width="0.6" opacity="0.5"/>
+    <rect x="71" y="-24" width="8" height="5" rx="1" fill="none" stroke="#0d1117" stroke-width="0.6" opacity="0.5"/>
+    <rect x="82" y="-24" width="8" height="5" rx="1" fill="none" stroke="#0d1117" stroke-width="0.6" opacity="0.5"/>
+    <!-- Bridge top deck -->
+    <rect x="52" y="-32" width="50" height="4" rx="1" fill="#0d1117" opacity="0.5"/>
+    <!-- Mast -->
+    <line x1="77" y1="-32" x2="77" y2="-52" stroke="#0d1117" stroke-width="1.2"/>
+    <!-- Radar / antenna -->
+    <line x1="72" y1="-48" x2="82" y2="-48" stroke="#0d1117" stroke-width="0.8"/>
+    <circle cx="77" cy="-52" r="1.5" fill="#0d1117"/>
+    <!-- Funnel -->
+    <path d="M86,-32 L84,-44 L94,-44 L92,-32Z" fill="none" stroke="#0d1117" stroke-width="1"/>
+    <line x1="85" y1="-38" x2="93" y2="-38" stroke="#0d1117" stroke-width="0.8" opacity="0.4"/>
+
+    <!-- Cargo holds / hatches -->
+    <rect x="-80" y="-4" width="30" height="4" rx="0.5" fill="none" stroke="#0d1117" stroke-width="0.8" opacity="0.5"/>
+    <rect x="-46" y="-4" width="30" height="4" rx="0.5" fill="none" stroke="#0d1117" stroke-width="0.8" opacity="0.5"/>
+    <rect x="-12" y="-4" width="30" height="4" rx="0.5" fill="none" stroke="#0d1117" stroke-width="0.8" opacity="0.5"/>
+    <rect x="22" y="-4" width="30" height="4" rx="0.5" fill="none" stroke="#0d1117" stroke-width="0.8" opacity="0.5"/>
+
+    <!-- On-deck containers (stacked on hatches) -->
+    <rect x="-78" y="-14" width="14" height="10" rx="0.5" fill="none" stroke="#0d1117" stroke-width="0.7"/>
+    <rect x="-62" y="-14" width="14" height="10" rx="0.5" fill="#0d1117" opacity="0.05" stroke="#0d1117" stroke-width="0.7"/>
+    <rect x="-44" y="-14" width="14" height="10" rx="0.5" fill="none" stroke="#0d1117" stroke-width="0.7"/>
+    <rect x="-28" y="-14" width="14" height="10" rx="0.5" fill="none" stroke="#0d1117" stroke-width="0.7"/>
+    <rect x="-10" y="-14" width="14" height="10" rx="0.5" fill="#0d1117" opacity="0.05" stroke="#0d1117" stroke-width="0.7"/>
+    <rect x="6" y="-14" width="14" height="10" rx="0.5" fill="none" stroke="#0d1117" stroke-width="0.7"/>
+    <rect x="24" y="-14" width="14" height="10" rx="0.5" fill="none" stroke="#0d1117" stroke-width="0.7"/>
+    <rect x="40" y="-14" width="14" height="10" rx="0.5" fill="#0d1117" opacity="0.05" stroke="#0d1117" stroke-width="0.7"/>
+    <!-- Second tier -->
+    <rect x="-74" y="-22" width="14" height="8" rx="0.5" fill="none" stroke="#0d1117" stroke-width="0.5" opacity="0.6"/>
+    <rect x="-58" y="-22" width="14" height="8" rx="0.5" fill="none" stroke="#0d1117" stroke-width="0.5" opacity="0.6"/>
+    <rect x="-40" y="-22" width="14" height="8" rx="0.5" fill="#0d1117" opacity="0.04" stroke="#0d1117" stroke-width="0.5" opacity="0.6"/>
+    <rect x="-6" y="-22" width="14" height="8" rx="0.5" fill="none" stroke="#0d1117" stroke-width="0.5" opacity="0.6"/>
+    <rect x="10" y="-22" width="14" height="8" rx="0.5" fill="none" stroke="#0d1117" stroke-width="0.5" opacity="0.6"/>
+
+    <!-- Portholes on hull -->
+    <circle cx="-60" cy="8" r="1.3" fill="none" stroke="#0d1117" stroke-width="0.5" opacity="0.3"/>
+    <circle cx="-40" cy="8" r="1.3" fill="none" stroke="#0d1117" stroke-width="0.5" opacity="0.3"/>
+    <circle cx="-20" cy="8" r="1.3" fill="none" stroke="#0d1117" stroke-width="0.5" opacity="0.3"/>
+    <circle cx="0" cy="8" r="1.3" fill="none" stroke="#0d1117" stroke-width="0.5" opacity="0.3"/>
+    <circle cx="20" cy="8" r="1.3" fill="none" stroke="#0d1117" stroke-width="0.5" opacity="0.3"/>
+    <circle cx="40" cy="8" r="1.3" fill="none" stroke="#0d1117" stroke-width="0.5" opacity="0.3"/>
+  </g>
+
+  <!-- ============================================================ -->
+  <!-- MOORING LINES — ship to dock                                  -->
+  <!-- ============================================================ -->
+  <path d="M430,181 Q445,175 470,190" fill="none" stroke="#0d1117" stroke-width="0.6" opacity="0.3"/>
+  <path d="M340,181 Q380,170 470,195" fill="none" stroke="#0d1117" stroke-width="0.6" opacity="0.25"/>
+
+  <!-- ============================================================ -->
+  <!-- SEABIRDS                                                      -->
+  <!-- ============================================================ -->
+  <g opacity="0.18">
+    <path d="M500,60 Q504,55 508,58 Q512,55 516,60" fill="none" stroke="#0d1117" stroke-width="0.9"/>
+    <path d="M560,45 Q563,42 566,44 Q569,42 572,45" fill="none" stroke="#0d1117" stroke-width="0.7"/>
+    <path d="M640,70 Q644,66 648,68 Q652,66 656,70" fill="none" stroke="#0d1117" stroke-width="0.8"/>
+    <path d="M720,50 Q723,47 726,49 Q729,47 732,50" fill="none" stroke="#0d1117" stroke-width="0.7"/>
+    <path d="M350,40 Q354,36 358,38 Q362,36 366,40" fill="none" stroke="#0d1117" stroke-width="0.8"/>
+  </g>
+
+  <!-- ============================================================ -->
+  <!-- SIGNAL / STATUS LIGHT on crane boom tip                       -->
+  <!-- ============================================================ -->
+  <g transform="translate(185,64)">
+    <circle cx="0" cy="0" r="3" fill="none" stroke="#0d1117" stroke-width="1"/>
+    <circle cx="0" cy="0" r="1.2" fill="#0d1117" opacity="0.3"/>
+    <!-- Light rays -->
+    <line x1="4" y1="-2" x2="10" y2="-5" stroke="#2ea043" stroke-width="0.6" opacity="0.35"/>
+    <line x1="5" y1="0" x2="11" y2="0" stroke="#2ea043" stroke-width="0.6" opacity="0.3"/>
+    <line x1="4" y1="2" x2="10" y2="5" stroke="#2ea043" stroke-width="0.6" opacity="0.25"/>
+  </g>
+
+  <!-- ============================================================ -->
+  <!-- DEVDOCK name + inscription                                    -->
+  <!-- ============================================================ -->
+  <text x="400" y="268" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="36" font-weight="bold" letter-spacing="10" fill="#0d1117">DEVDOCK</text>
+
+  <text x="400" y="292" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="12" letter-spacing="2" fill="#0d1117" opacity="0.55">jira · bitbucket · pr review · ssh git ops · zod-validated</text>
+
+  <!-- Ground line -->
+  <rect x="40" y="306" width="720" height="3" rx="1.5" fill="#0d1117"/>
+</svg>

@@ -1,0 +1,57 @@
+{
+  "name": "devdock",
+  "version": "1.0.0",
+  "description": "TypeScript clients for JIRA Cloud & Bitbucket Cloud — issue tracking, PR review, SSH-aware git ops. Zod-validated, retry-safe, zero dependencies beyond Zod.",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./jira": {
+      "import": "./dist/clients/jira.js",
+      "types": "./dist/clients/jira.d.ts"
+    },
+    "./bitbucket": {
+      "import": "./dist/clients/bitbucket.js",
+      "types": "./dist/clients/bitbucket.d.ts"
+    },
+    "./scm-ops": {
+      "import": "./dist/scm-ops.js",
+      "types": "./dist/scm-ops.d.ts"
+    },
+    "./schemas": {
+      "import": "./dist/schemas/index.js",
+      "types": "./dist/schemas/index.d.ts"
+    }
+  },
+  "scripts": {
+    "build": "tsc",
+    "typecheck": "tsc --noEmit"
+  },
+  "keywords": [
+    "jira",
+    "bitbucket",
+    "atlassian",
+    "pr-review",
+    "pull-request",
+    "git",
+    "ssh",
+    "typescript",
+    "zod"
+  ],
+  "author": "Shubham Katta",
+  "license": "MIT",
+  "dependencies": {
+    "zod": "^3.23.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.5.0",
+    "@types/node": "^22.0.0"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
