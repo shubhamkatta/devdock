@@ -2,7 +2,7 @@
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="docs/assets/banner-dark.svg">
     <source media="(prefers-color-scheme: light)" srcset="docs/assets/banner.svg">
-    <img alt="devdock — TypeScript clients for JIRA Cloud and Bitbucket Cloud" src="docs/assets/banner.svg" width="720">
+    <img alt="devdock — MCP server for AI agents: JIRA, Bitbucket, git ops" src="docs/assets/banner.svg" width="720">
   </picture>
 </p>
 
@@ -13,7 +13,7 @@
   <a href="https://github.com/shubhamkatta/devdock"><img alt="GitHub" src="https://img.shields.io/github/stars/shubhamkatta/devdock?style=social"></a>
 </p>
 
-<p align="center"><em>Typed Atlassian clients. JIRA issues, Bitbucket PRs, SSH git ops. Zod-validated, retry-safe.</em></p>
+<p align="center"><em>MCP server for AI agents — JIRA issues, Bitbucket PRs, SSH git ops. Zod-validated, retry-safe.</em></p>
 
 ---
 
@@ -21,6 +21,7 @@
 <summary><strong>Contents</strong></summary>
 
 - [What this is](#what-this-is)
+- [MCP Server](#mcp-server)
 - [Install](#install)
 - [JIRA Client](#jira-client)
 - [Bitbucket Client](#bitbucket-client)
@@ -35,14 +36,17 @@
 
 ## What this is
 
-Production-grade TypeScript clients for JIRA Cloud (REST v3) and Bitbucket Cloud (REST v2.0), extracted from a real product that uses them daily.
+An [MCP (Model Context Protocol)](https://modelcontextprotocol.io) server that gives AI agents direct access to JIRA and Bitbucket. Run it on your dev machine, point your agent at it, and let it search tickets, read issue details, transition workflows, and manage PRs — all through a standardized protocol.
 
+Also usable as a standalone TypeScript library.
+
+- **MCP server**: stdio transport for Claude Code / Cursor / IDEs, or SSE transport over HTTP for networked agents
 - **JIRA**: search issues with JQL, get/comment/transition/assign, list projects and statuses, ADF serialization for comments with @-mentions
 - **Bitbucket**: list workspaces/repos, create/list/get PRs, fetch diffs, approve/decline/request-changes, post inline comments
 - **SCM ops**: SSH-aware clone/fetch/push with transient key files (never persisted to disk), HTTPS clone for public repos, local git helpers
 - **Schemas**: Zod schemas for every domain entity, IPC boundary, filter shape, and settings object — use them standalone or with the clients
 
-Every API response is parsed through Zod. 429s are retried with exponential backoff. Errors carry the HTTP status code. No runtime dependencies beyond Zod.
+Every API response is parsed through Zod. 429s are retried with exponential backoff. Errors carry the HTTP status code.
 
 ## Install
 
@@ -50,6 +54,84 @@ Every API response is parsed through Zod. 429s are retried with exponential back
 npm install devdock
 # or
 pnpm add devdock
+```
+
+## MCP Server
+
+devdock exposes JIRA operations as MCP tools that any AI agent can call. Two transport modes:
+
+### Quick start — Claude Code / Cursor (stdio)
+
+Add to your Claude Code config (`~/.claude/claude_desktop_config.json` or project `.mcp.json`):
+
+```json
+{
+  "mcpServers": {
+    "devdock": {
+      "command": "npx",
+      "args": ["-y", "devdock"],
+      "env": {
+        "JIRA_BASE_URL": "https://yoursite.atlassian.net",
+        "JIRA_EMAIL": "you@company.com",
+        "JIRA_API_TOKEN": "your-atlassian-api-token"
+      }
+    }
+  }
+}
+```
+
+That's it. Your agent can now call `jira_search`, `jira_get_issue`, `jira_comment`, etc.
+
+### Networked agents (SSE over HTTP)
+
+For agents that connect over the network, start the SSE server:
+
+```bash
+export JIRA_BASE_URL=https://yoursite.atlassian.net
+export JIRA_EMAIL=you@company.com
+export JIRA_API_TOKEN=your-token
+
+# Default port 3100
+npx devdock sse
+
+# Custom port
+npx devdock sse 8080
+```
+
+Agents connect via:
+- **SSE endpoint**: `GET http://localhost:3100/sse`
+- **Message endpoint**: `POST http://localhost:3100/messages?sessionId=...`
+- **Health check**: `GET http://localhost:3100/health`
+
+### Available MCP tools
+
+| Tool | Description |
+|---|---|
+| `jira_search` | Search issues with filters — project, status, priority, issue type (Epic/Story/Task/Subtask/Bug), assignee, date range, free text |
+| `jira_get_issue` | Get full issue details — description, comments, available transitions, web URL |
+| `jira_list_projects` | List all accessible JIRA projects |
+| `jira_list_statuses` | List available statuses, optionally by project |
+| `jira_get_transitions` | Get available workflow transitions for an issue |
+| `jira_comment` | Add a comment with @-mention support |
+| `jira_transition` | Move an issue through its workflow |
+| `jira_assign` | Assign or unassign an issue |
+| `jira_search_users` | Search users by name/email for assignment and mentions |
+
+### Programmatic usage
+
+```typescript
+import { createMcpServer } from "devdock/mcp";
+import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
+
+const server = createMcpServer({
+  jira: {
+    baseUrl: "https://yoursite.atlassian.net",
+    email: "you@company.com",
+    apiToken: process.env.JIRA_API_TOKEN!,
+  },
+});
+
+await server.connect(new StdioServerTransport());
 ```
 
 ## JIRA Client
@@ -281,6 +363,8 @@ const filter = JiraFilterSchema.parse({
 
 ```
 src/
+├── cli.ts               CLI entry point (stdio / sse mode)
+├── mcp-server.ts        MCP server — registers JIRA tools
 ├── clients/
 │   ├── jira.ts          JIRA Cloud REST v3 client
 │   └── bitbucket.ts     Bitbucket Cloud REST v2.0 client
@@ -295,6 +379,8 @@ src/
 
 **Design decisions:**
 
+- **MCP-first.** The primary interface is an MCP server that AI agents connect to. The TypeScript clients are usable standalone but the MCP layer is the intended entry point.
+- **Dual transport.** stdio for local IDE integrations (Claude Code, Cursor), SSE over HTTP for networked agents on a configurable port.
 - **Zod at every boundary.** Every API response is parsed, not cast. Schema violations throw immediately with actionable error paths.
 - **429 retry with backoff.** Both clients retry rate-limited responses up to 3 times with 250/500/1000/2000ms exponential backoff.
 - **Cursor pagination.** JIRA uses the new `POST /search/jql` endpoint (cursor-based, per Atlassian's deprecation of `POST /search`). Bitbucket uses `next` URL cursors. Both auto-paginate with safety caps.

@@ -1,10 +1,13 @@
 {
   "name": "devdock",
   "version": "1.0.0",
-  "description": "TypeScript clients for JIRA Cloud & Bitbucket Cloud — issue tracking, PR review, SSH-aware git ops. Zod-validated, retry-safe, zero dependencies beyond Zod.",
+  "description": "JIRA & Bitbucket MCP server for AI agents — search issues, manage PRs, SSH git ops. Zod-validated, retry-safe.",
   "type": "module",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "bin": {
+    "devdock": "dist/cli.js"
+  },
   "exports": {
     ".": {
       "import": "./dist/index.js",
@@ -25,16 +28,25 @@
     "./schemas": {
       "import": "./dist/schemas/index.js",
       "types": "./dist/schemas/index.d.ts"
+    },
+    "./mcp": {
+      "import": "./dist/mcp-server.js",
+      "types": "./dist/mcp-server.d.ts"
     }
   },
   "scripts": {
     "build": "tsc",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "start": "node dist/cli.js",
+    "start:sse": "node dist/cli.js sse"
   },
   "keywords": [
     "jira",
     "bitbucket",
     "atlassian",
+    "mcp",
+    "model-context-protocol",
+    "ai-agent",
     "pr-review",
     "pull-request",
     "git",
@@ -45,11 +57,12 @@
   "author": "Shubham Katta",
   "license": "MIT",
   "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.29.0",
     "zod": "^3.23.0"
   },
   "devDependencies": {
-    "typescript": "^5.5.0",
-    "@types/node": "^22.0.0"
+    "@types/node": "^22.0.0",
+    "typescript": "^5.5.0"
   },
   "engines": {
     "node": ">=20"

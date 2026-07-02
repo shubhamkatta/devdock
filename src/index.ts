@@ -22,3 +22,6 @@ export {
 export type { GitRunResult, CloneOpts, FetchOpts, PushOpts, CloneHttpsOpts } from "./scm-ops.js";
 
 export * from "./schemas/index.js";
+
+export { createMcpServer } from "./mcp-server.js";
+export type { DevdockMcpOpts } from "./mcp-server.js";
